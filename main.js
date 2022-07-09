@@ -38,18 +38,18 @@ async function getPosts() {
         data.length < limit ? "disabled" : ""
       }>next</button>`;
     })
-  );
+  ).catch(error => console.log(error));
 }
 getPosts();
 
-async function getUsers() {
-  await fetch(`${users_API}`).then((response) => response.json().then((data) => {
-    data.forEach((item) => {
-      postList.innerHTML += `<p>${item.username}</p>`;
-    })
-  }))
-};
-getUsers();
+// async function getUsers() {
+//   await fetch(`${users_API}`).then((response) => response.json().then((data) => {
+//     data.forEach((item) => {
+//       postList.innerHTML += `<p>${item.username}</p>`;
+//     })
+//   }))
+// };
+// getUsers();
 
 function prevPage() {
   page -= 1;
